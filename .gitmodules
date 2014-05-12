@@ -1,0 +1,6 @@
+[submodule "external/twl"]
+	path = external/twl
+	url = https://github.com/Malekblubb/twl.git
+[submodule "external/mlk"]
+	path = external/mlk
+	url = https://github.com/Malekblubb/mlk.git
