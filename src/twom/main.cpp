@@ -3,7 +3,10 @@
 // See LICENSE for more information.
 //
 
-int main()
-{
+#include <twom/application.hpp>
 
+
+int main(int argc, char* argv[])
+{
+	return Wt::WRun(argc, argv, [](const auto& env){return new twom::application{env};});
 }
