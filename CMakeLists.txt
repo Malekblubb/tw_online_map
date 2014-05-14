@@ -8,7 +8,7 @@ include_directories("./include" "./external/mlk/include" "./external/twl/include
 add_executable(${PROJECT_NAME} ${SRC_LIST})
 
 # set compiler flags
-set(CMAKE_CXX_FLAGS "-std=c++1y -stdlib=libc++ -O3")
+set(CMAKE_CXX_FLAGS "-std=c++1y -O3")
 set(CMAKE_CXX_COMPILER "clang++")
 
 
@@ -28,5 +28,17 @@ if(SFML_FOUND)
 endif()
 
 # wt
-target_link_libraries(${PROJECT_NAME} wtfcgi wt)
+target_link_libraries(${PROJECT_NAME} wthttp wt)
+
+# pnglite
+target_link_libraries(${PROJECT_NAME} pnglite)
+
+# qt
+FIND_PACKAGE(Qt4 REQUIRED)
+if(Qt4_FOUND)
+    include_directories(${QT_INCLUDE_DIR})
+    include(${QT_USE_FILE})
+    add_definitions(${QT_DEFINITIONS})
+    target_link_libraries(${PROJECT_NAME} ${QT_LIBRARIES})
+endif()
 
